@@ -1,0 +1,19 @@
+.section {
+    padding: 50px;
+	margin-left: 400px;
+	margin-right: 400px;
+	border-radius: 10px;
+	text-align: center;
+}
+body {
+    background-color: blue;
+}
+
+.daily {
+    padding: 50px;
+	margin-left: 400px;
+	margin-right: 400px;
+	border-radius: 10px;
+	text-align: center;
+}
+ 
