@@ -8,6 +8,7 @@ module.exports = function DailyExpenses(db) {
             await db.none('insert into tracker(first_name,last_name, email) values(Khazimla )', [name, 1])
 
         }
+        console.log(setNames)
 
 
     }

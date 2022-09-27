@@ -8,6 +8,7 @@ const app = express();
 const DailyExpenses = require('./trackerdb');
 
 
+const dailyExpense = DailyExpenses();
 
 app.engine('handlebars', exphbs.engine({ defaultLayout: '' }));
 
@@ -26,9 +27,6 @@ app.get('/', function (req, res) {
 app.post('/log', function (req, res) {
     res.render('expenses',);
 });
-
-
-const dailyExpense = DailyExpenses();
 
 
 
