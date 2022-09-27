@@ -28,10 +28,14 @@ app.post('/log', function (req, res) {
     res.render('expenses',);
 });
 
+app.post('/page2', function (req, res) {
+    res.render('calculations',);
+});
 
 
 
-const PORT = process.env.PORT || 5000;
+
+const PORT = process.env.PORT || 3333;
 app.listen(PORT, function () {
     console.log("App started at port:", PORT)
 });
