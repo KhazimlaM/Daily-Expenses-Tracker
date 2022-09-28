@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,36 +8,44 @@
     <link rel="stylesheet" href="/css/tracker.css">
     <title>Document</title>
 </head>
+
 <body>
+     <style>
+        .section {
+            background-image: url('images/expense1.png');
+        }
+
+        body {
+             background-color: rgb(114, 110, 95));
+        }
+    </style>
 
     <div class="daily">
         <h1>Daily Expenses Application</h1>
-       
+
     </div>
 
     <form action="/page2" method="POST">
+        
+          
+        <div class="button">
+             <select name="catagory">
+            <option name='catagory' value="food">food</option>
+            <option name='catagory' value="toiletries">toiletries</option>
+            <option name='catagory' value="travel">travel</option>
+            <option name='catagory' value="communication">communication</option>
+        </select>
+        <input type="number" value="" name="food" step=".01" placeholder="">
+        <input type="date" name="date" value="" placeholder=""><br><br>
         <div class="section">
-            <h1>Toiletries <input name="nameEntered" type="text" id="input" class="expense"></input> <input type="date">
-               
-            </h1>
-            <h1>Communication <input name="nameEntered" type="text" id="input" class="expense"></input> <input type="date">
-               
-            </h1>
-            <h1>Travel <input name="nameEntered" type="text" id="input" class="expense"></input> <input type="date">
-              
-            </h1>
-            <h1>Food <input name="nameEntered" type="text" id="input" class="expense"></input> <input type="date">
-               
-            </h1>
-        </div>
-         <div class="button">
 
             <a href="/page3"></a> <button class="btns" on type="submit" name="button">Calculate</button>
-           
+
         </div>
 
-    </form> 
+    </form>
 </body>
+
 </html>
 
 </body>
