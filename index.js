@@ -25,8 +25,13 @@ app.get('/', function (req, res) {
 });
 
 app.post('/log', function (req, res) {
+    res.render('signup',);
+});
+
+app.post('/sign', function (req, res) {
     res.render('expenses',);
 });
+
 
 app.post('/page2', function (req, res) {
     res.render('calculations',);

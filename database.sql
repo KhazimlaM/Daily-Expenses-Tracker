@@ -1,32 +1,35 @@
-sudo -u postgres createdb trackers;
-sudo -u postgres createuser Khazimla -P;
-
-create table users(
-	id serial not null primary key,
+sudo -u postgres createdb my_trackers;
+sudo -u postgres createuser zingce -P;
+ 
+--  my trackers d/name
+create table userzz (
+	id serial primary key,
 	first_name text not null,
     last_name text not null,
-    email varchar(25)
+    email text not null
 );
 
-create table categories (
+create table categoriez (
 	id serial not null primary key,
     descriptions text not null
 	
 );
 
-insert into categories (descriptions) values ('food');
-insert into categories (descriptions) values ('travel');
-insert into categories (descriptions) values ('toiletries');
-insert into categories (descriptions) values ('communication');
+insert into categoriez (descriptions) values ('food');
+insert into categoriez (descriptions) values ('travel');
+insert into categoriez (descriptions) values ('toiletries');
+insert into categoriez (descriptions) values ('communication');
 
 
-create table expenses(
+create table expensez(
 	id serial not null primary key,
-    users_id integer not null,
-    categories_id integer not null,
+    userzz_id integer not null,
+    categoriez_id integer not null,
     amount integer not null,
    expense_date varchar(20) not null,
-    foreign key (users_id) references users (id),
-    foreign key (categories_id) references categories (id)
+    foreign key (userz_id) references userz (id),
+    foreign key (categoriez_id) references categoriez (id)
 
 );
+insert into userz
+(first_name,last_name,email) values ('KHAZIMLA','MAHOMANA', 'MAHOMANA@GMAIL.COM')
