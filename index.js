@@ -51,7 +51,7 @@ app.post('/log', async function (req, res) {
     let email = req.body.emailEntered;
 
     dailyExpense.storeNames(name, surname, email)
-    console.log(name + " this is the name")
+    // console.log(name + " this is the name")
     res.render('signup');
 
 });
