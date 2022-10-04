@@ -8,7 +8,10 @@ const app = express();
 const DailyExpenses = require('./trackerdb');
 
 
-const dailyExpense = DailyExpenses();
+
+
+const DATABASE_URL = process.env.DATABASE_URL || "postgresql://codex:pg123@localhost:5432/my_trackers";
+
 
 app.engine('handlebars', exphbs.engine({ defaultLayout: '' }));
 
@@ -24,17 +27,49 @@ app.get('/', function (req, res) {
     res.render('index',);
 });
 
-app.post('/log', function (req, res) {
-    res.render('signup',);
+
+const config = {
+    connectionString: DATABASE_URL
+}
+
+if (process.env.NODE_ENV == 'production') {
+    config.ssl = {
+        rejectUnauthorized: false
+    }
+}
+
+const db = pgp(config);
+console.log(db);
+
+const dailyExpense = DailyExpenses(db);
+
+
+app.post('/log', async function (req, res) {
+
+    let name = req.body.nameEntered;
+    let surname = req.body.surnameEntered;
+    let email = req.body.emailEntered;
+
+    dailyExpense.storeNames(name, surname, email)
+    // console.log(name + " this is the name")
+    res.render('signup');
+
 });
 
 app.post('/sign', function (req, res) {
-    res.render('expenses',);
+
+    let name = req.body.name
+    let email = req.body.email
+
+    if (name && email) {
+
+     }
+    res.render('expenses');
 });
 
 
-app.post('/page2', function (req, res) {
-    res.render('calculations',);
+app.post('/display', function (req, res) {
+    res.render('calculations');
 });
 
 

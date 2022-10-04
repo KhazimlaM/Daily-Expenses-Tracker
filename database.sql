@@ -1,8 +1,8 @@
 sudo -u postgres createdb my_trackers;
-sudo -u postgres createuser zingce -P;
+sudo -u postgres createuser zingce -;
  
---  my trackers d/name
-create table userzz (
+
+create table userz (
 	id serial primary key,
 	first_name text not null,
     last_name text not null,
@@ -23,7 +23,7 @@ insert into categoriez (descriptions) values ('communication');
 
 create table expensez(
 	id serial not null primary key,
-    userzz_id integer not null,
+    userz_id integer not null,
     categoriez_id integer not null,
     amount integer not null,
    expense_date varchar(20) not null,
@@ -32,4 +32,5 @@ create table expensez(
 
 );
 insert into userz
-(first_name,last_name,email) values ('KHAZIMLA','MAHOMANA', 'MAHOMANA@GMAIL.COM')
+(first_name,last_name,email) values ('KHAZIMLA','MAHOMANA', 'MAHOMANA@GMAIL.COM');
+
