@@ -6,17 +6,26 @@ module.exports = function DailyExpenses(db) {
 
   }
 
-  async function getNames(name, email) {
-    
-    let theNames = await db.oneOrNone('select first_name from userz where userz = $1', [name, email]);
+  async function getNames(name) {
+  
+    let theNames = await db.one('select first_name from userz where first_name = $1', [name]);
+    console.log(theNames + 'fdfdffdfd')
     return theNames;
   }
+ 
+  async function storeExpenses(name, date, amount, catagory){
+ let   user_id = await db.any('Select id from userz where first_name = $1', [name])
+  let catagory_id = await db.any('Select id from categoriez where descriptions = $1', [catagory])
+console.log(user_id, catagory_id)
+  await db.none('INSERT INTO expensez(categoriez_id, amount, expense_date) values ($1, $2, $3)' [date, amount, catagory]);
 
-  
+  }
   
   return {
+
     storeNames,
-    getNames
+    getNames,
+    storeExpenses
     
   }
 
